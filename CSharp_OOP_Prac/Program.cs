@@ -1,6 +1,7 @@
 ﻿using System;
+using System.Threading.Tasks;
 
-namespace CSharp_OOP_Prac
+namespace CSharpOOP
 {
     class Program
     {
@@ -18,12 +19,43 @@ namespace CSharp_OOP_Prac
             // Task:
             // Add a play games method that will decrease energy by 15.
 
-            Student myStudent = new Student();
-            myStudent.FirstName = "Jane";
+            /* Group Task:
+             
+            Add an inaccessible stress level variable, initialized at 0. *
+	            -When homework is done, increase stress by 30. *
+	            -When sleep is done, decrease stress by 50 (or 5 per hour). *
+	            -When games are done, decrease stress by 25. *
+	            -Add a floor to stress level of 0 (similar to ceiling on energy). *
+            Add a query method for stress level and that will output a string based on its level.
+            Throw an exception if stress tries to go over 100. *
+            If you finish: generate a student in main (you can clear out the stuff below this comment), and simulate 10 days for them. IE do homework and games until they're out of energy, sleep and repeat. I know it's a rather simple existence, but it'll suffice for now.
+            */
 
-            Console.WriteLine(myStudent.StudentID + ": " + myStudent.FirstName + " " + myStudent.LastName);
+
+            Student ourStudent = new Student("Joe", "Dirt");
+
+            for (int i = 1; i <= 10; i++)
+            {
+                Console.WriteLine($"----------\nStarting Day {i}");
+                try
+                {
+                    ourStudent.DoHomework();
+                    ourStudent.DoHomework();
+                    ourStudent.PlayGames();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+                ourStudent.Sleep(7);
+                Console.WriteLine($"Energy Level: {ourStudent.QueryEnergyLevel()}\nStress Level: {ourStudent.QueryStressLevel()}");
+            }
+
+
+
+
+
 
         }
-        
     }
 }
