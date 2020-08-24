@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-namespace CSharpOOP
+namespace CSharp_OOP_Prac
 {
     class Program
     {

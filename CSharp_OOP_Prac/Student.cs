@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace CSharpOOP
+namespace CSharp_OOP_Prac
 {
     public class Student
     {
