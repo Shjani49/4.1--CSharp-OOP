@@ -136,10 +136,23 @@ namespace CSharpOOP
 
         public void DoHomework()
         {
-            // TODO: Fix bug where if EnergyLevel fails, StressLevel will still be modified.
-            StressLevel += 30;
-            EnergyLevel -= 25;
-            // Same as EnergyLevel = EnergyLevel - 25;
+            // Save the values before we try the homework.
+            int tempEnergy = EnergyLevel, tempStress = StressLevel;
+
+            try
+            {
+                // Try to set the properties to the new ones.
+                EnergyLevel -= 25;
+                StressLevel += 30;
+            }
+            catch (Exception ex)
+            {
+                // If either one fails, rollback both.
+                EnergyLevel = tempEnergy;
+                StressLevel = tempStress;
+                // Throw the exception up the stack to main.
+                throw ex;
+            }
         }
 
         public void Sleep()
