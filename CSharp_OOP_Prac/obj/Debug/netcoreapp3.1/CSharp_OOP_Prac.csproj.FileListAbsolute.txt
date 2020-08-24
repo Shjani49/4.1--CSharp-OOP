@@ -1,0 +1,13 @@
+C:\Users\Shival\Documents\Projects\C#\CSharp_OOP_Prac\CSharp_OOP_Prac\bin\Debug\netcoreapp3.1\CSharp_OOP_Prac.exe
+C:\Users\Shival\Documents\Projects\C#\CSharp_OOP_Prac\CSharp_OOP_Prac\bin\Debug\netcoreapp3.1\CSharp_OOP_Prac.deps.json
+C:\Users\Shival\Documents\Projects\C#\CSharp_OOP_Prac\CSharp_OOP_Prac\bin\Debug\netcoreapp3.1\CSharp_OOP_Prac.runtimeconfig.json
+C:\Users\Shival\Documents\Projects\C#\CSharp_OOP_Prac\CSharp_OOP_Prac\bin\Debug\netcoreapp3.1\CSharp_OOP_Prac.runtimeconfig.dev.json
+C:\Users\Shival\Documents\Projects\C#\CSharp_OOP_Prac\CSharp_OOP_Prac\bin\Debug\netcoreapp3.1\CSharp_OOP_Prac.dll
+C:\Users\Shival\Documents\Projects\C#\CSharp_OOP_Prac\CSharp_OOP_Prac\bin\Debug\netcoreapp3.1\CSharp_OOP_Prac.pdb
+C:\Users\Shival\Documents\Projects\C#\CSharp_OOP_Prac\CSharp_OOP_Prac\obj\Debug\netcoreapp3.1\CSharp_OOP_Prac.csprojAssemblyReference.cache
+C:\Users\Shival\Documents\Projects\C#\CSharp_OOP_Prac\CSharp_OOP_Prac\obj\Debug\netcoreapp3.1\CSharp_OOP_Prac.AssemblyInfoInputs.cache
+C:\Users\Shival\Documents\Projects\C#\CSharp_OOP_Prac\CSharp_OOP_Prac\obj\Debug\netcoreapp3.1\CSharp_OOP_Prac.AssemblyInfo.cs
+C:\Users\Shival\Documents\Projects\C#\CSharp_OOP_Prac\CSharp_OOP_Prac\obj\Debug\netcoreapp3.1\CSharp_OOP_Prac.csproj.CoreCompileInputs.cache
+C:\Users\Shival\Documents\Projects\C#\CSharp_OOP_Prac\CSharp_OOP_Prac\obj\Debug\netcoreapp3.1\CSharp_OOP_Prac.dll
+C:\Users\Shival\Documents\Projects\C#\CSharp_OOP_Prac\CSharp_OOP_Prac\obj\Debug\netcoreapp3.1\CSharp_OOP_Prac.pdb
+C:\Users\Shival\Documents\Projects\C#\CSharp_OOP_Prac\CSharp_OOP_Prac\obj\Debug\netcoreapp3.1\CSharp_OOP_Prac.genruntimeconfig.cache
