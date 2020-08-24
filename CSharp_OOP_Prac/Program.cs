@@ -7,23 +7,17 @@ namespace CSharp_OOP_Prac
         static void Main(string[] args)
         {
 
-            // If an input string contains a space, output "Multiple words.", otherwise output "One word."
-            // Make sure the input is trimmed before checking. Try to do it with one variable for input and one with output.
-            // Use a ternary operator. If you finish that early, Try to do it without any variables at all (remove the line above 
-            // these comments).
+            string inputOne = null, inputTwo = null, inputThree = "Yes";
 
-            string input, output;
-            Console.WriteLine("Please Eneter a String: ");
-            input = Console.ReadLine();
+            // Null coalescing operator will use the left hand side if it is not null, otherwise the right side.
+            Console.WriteLine(inputOne ?? "The value was null.");
 
-            output = input.Trim().Contains(" ") ? "Multiple Words" : "One word";
-            Console.WriteLine(output);
+            // It's kind of the same as:
+            Console.WriteLine(inputOne != null ? inputOne : "The value was null.");
 
-            // Try to do it without any variables at all (remove the line above these comments).
-            // Two lines (prompt and output).
-            Console.Write("Please enter a string: ");
-            Console.WriteLine(Console.ReadLine().Trim().Contains(' ') ? "Multiple words." : "One word.");
 
+            // The can be strung together as well:
+            Console.WriteLine(inputOne ?? inputTwo ?? inputThree);
 
 
         }
