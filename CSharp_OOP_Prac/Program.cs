@@ -19,7 +19,10 @@ namespace CSharp_OOP_Prac
             // Add a play games method that will decrease energy by 15.
 
             Student myStudent = new Student();
-           
+            myStudent.FirstName = "Jane";
+
+            Console.WriteLine(myStudent.StudentID + ": " + myStudent.FirstName + " " + myStudent.LastName);
+
         }
         
     }
