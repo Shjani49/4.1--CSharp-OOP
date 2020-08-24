@@ -19,6 +19,13 @@ namespace CSharp_OOP_Prac
             output = input.Trim().Contains(" ") ? "Multiple Words" : "One word";
             Console.WriteLine(output);
 
+            // Try to do it without any variables at all (remove the line above these comments).
+            // Two lines (prompt and output).
+            Console.Write("Please enter a string: ");
+            Console.WriteLine(Console.ReadLine().Trim().Contains(' ') ? "Multiple words." : "One word.");
+
+
+
         }
     }
 }
