@@ -51,10 +51,17 @@ namespace CSharp_OOP_Prac
                 Console.WriteLine($"Energy Level: {ourStudent.QueryEnergyLevel()}\nStress Level: {ourStudent.QueryStressLevel()}");
             }
 
+            // 25-08-2020
+
+            SchoolClass theClass = new SchoolClass();
+            Teacher theTeacher = theClass.ClassTeacher;
+            theTeacher.FirstName = "Jane";
+
+            Console.WriteLine($"The class has the classcode {theClass.ClassCode}, is called {theClass.ClassName} and is being taught by {theClass.ClassTeacher.FirstName} {theClass.ClassTeacher.LastName}.");
 
 
 
-
+            
 
         }
     }
