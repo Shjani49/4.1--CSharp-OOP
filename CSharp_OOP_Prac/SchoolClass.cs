@@ -47,5 +47,11 @@ namespace CSharp_OOP_Prac
             //ClassTeacher = new Teacher();
 
         }
+        public SchoolClass(string classCode, string className)
+        {
+            ClassCode = classCode;
+            ClassName = className;
+            MaxStudents = 10;
+        }
     }
 }

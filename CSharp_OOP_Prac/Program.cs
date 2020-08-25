@@ -58,17 +58,21 @@ namespace CSharp_OOP_Prac
             theTeacher.FirstName = "Jane";
 
             Console.WriteLine($"The class has the classcode {theClass.ClassCode}, is called {theClass.ClassName} and is being taught by {theClass.ClassTeacher.FirstName} {theClass.ClassTeacher.LastName}.");
-
+           
+            // Assigning properties with individual statements.
             SchoolClass historyClass = new SchoolClass();
             historyClass.ClassCode = "HIST101";
             historyClass.ClassName = "Introduction to History";
 
-            // Rather than assigning props as multiple statements, you can assign them during construction.
+            // Rather than assigning props as multiple statements, you can assign them during construction using an initializer list.
             SchoolClass englishClass = new SchoolClass()
             {
                 ClassCode = "ENGL101",
                 ClassName = "Introduction to English"
             };
+            // Using a constructor.
+            SchoolClass programmingClass = new SchoolClass("CPRG101", "Introduction to Programming");
+
 
             Teacher sueTeacher = new Teacher()
             {
@@ -94,6 +98,9 @@ namespace CSharp_OOP_Prac
             // New teacher will be Joe
             // "this" will be History class
             historyClass.ClassTeacher = joeTeacher;
+
+            englishClass.ClassTeacher = joeTeacher;
+            programmingClass.ClassTeacher = joeTeacher;
 
             Console.WriteLine($"The class has the classcode {historyClass.ClassCode}, is called {historyClass.ClassName} and is being taught by {historyClass.ClassTeacher.FirstName} {historyClass.ClassTeacher.LastName}.");
 
