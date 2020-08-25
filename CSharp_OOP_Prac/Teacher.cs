@@ -12,6 +12,13 @@ namespace CSharp_OOP_Prac
         private DateTime DateOfBirth { get; set; }
 
         public List<SchoolClass> ClassesTaught { get; set; }
+
+
+        public static void Test()
+        {
+            Console.WriteLine("Teachers are responsible for instructing students in classes.");
+        }
+
         public Teacher()
         {
             StaffID = 1000;
