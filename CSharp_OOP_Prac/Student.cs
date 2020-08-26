@@ -34,7 +34,7 @@ namespace CSharp_OOP_Prac
 
             }
         }
-
+        public Pen WritingInstrument { get; set; }
         // We have to specify the backing variable for EnergyLevel because we are doing some validation with the value. 
         private int _energyLevel;
         private int EnergyLevel
@@ -86,7 +86,7 @@ namespace CSharp_OOP_Prac
                 }
             }
         }
-
+        public Stack<HomeWork> pendingHomeWork { get; set; }
         // Private properties can only be set in this class.
         private DateTime DateOfBirth { get; set; }
 
@@ -104,6 +104,8 @@ namespace CSharp_OOP_Prac
             DateOfBirth = DateTime.Now;
             EnergyLevel = 100;
             StressLevel = 0;
+            WritingInstrument = new Pen();
+            pendingHomeWork = new Stack<HomeWork>();
         }
         // A "partial" constructor takes some of the properties as arguments, and defaults the rest.
         public Student(string firstName, string lastName)
@@ -114,6 +116,9 @@ namespace CSharp_OOP_Prac
             DateOfBirth = DateTime.Now;
             EnergyLevel = 100;
             StressLevel = 0;
+            WritingInstrument = new Pen();
+            pendingHomeWork = new Stack<HomeWork>();
+           
         }
         // A "greedy" constructor takes all of the properties as arguments.
         // Depending on your implementation you may or may not allow private properties to be set via parameter. In this example we will not.
@@ -125,6 +130,9 @@ namespace CSharp_OOP_Prac
             DateOfBirth = DateTime.Now;
             EnergyLevel = 100;
             StressLevel = 0;
+            WritingInstrument = new Pen();
+            pendingHomeWork = new Stack<HomeWork>();
+           
         }
 
         // Additional methods can be defined on a class, and will operate on the instance of the object.
@@ -142,8 +150,11 @@ namespace CSharp_OOP_Prac
             try
             {
                 // Try to set the properties to the new ones.
-                EnergyLevel -= 25;
-                StressLevel += 30;
+
+                EnergyLevel -= 10 * pendingHomeWork.Peek().Complexity;
+                StressLevel += 5 * pendingHomeWork.Peek().Complexity;
+                WritingInstrument.Write("It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing");
+                pendingHomeWork.Pop();
             }
             catch (Exception ex)
             {

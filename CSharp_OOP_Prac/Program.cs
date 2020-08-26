@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace CSharp_OOP_Prac
 {
@@ -30,6 +31,23 @@ namespace CSharp_OOP_Prac
             Throw an exception if stress tries to go over 100. *
             If you finish: generate a student in main (you can clear out the stuff below this comment), and simulate 10 days for them. IE do homework and games until they're out of energy, sleep and repeat. I know it's a rather simple existence, but it'll suffice for now.
             */
+
+
+            //  26/8/2020
+            /*
+          Practice Task:
+         Add a "Pending Homework" property that is a stack of homework objects. 
+         The homework class will have a complexity property of 1-5. Please validate and clamp to 1 if less than 1, and 5 if greater than 5.
+         Modify the DoHomework method so that it will take the top homework off the stack, and the number of characters being written will be the complexity times 100. Energy level will decrease by complexity times 10, and stress will increase by complexity times 5.
+         */
+            
+            Student myStudent = new Student();
+            myStudent.pendingHomeWork.Push(new HomeWork() { Complexity = 3 });
+            Console.WriteLine(myStudent.pendingHomeWork);
+            myStudent.DoHomework();
+            Console.WriteLine(myStudent.pendingHomeWork);
+
+
 
 
             Student ourStudent = new Student("Joe", "Dirt");
@@ -108,6 +126,55 @@ namespace CSharp_OOP_Prac
 
 
             Teacher.Test();
+
+
+            Pen redPen = new Pen()
+            {
+                Brand = "Bic",
+                InkColor = "Red",
+                HasLid = true,
+                MaxInk = 1
+            };
+            Pen bluePen = new Pen()
+            {
+                Brand = "Bic",
+                InkColor = "Blue",
+                HasLid = false,
+                MaxInk = 10
+            };
+            Pen blackPen = new Pen()
+            {
+                Brand = "Pilot",
+                InkColor = "Black",
+                HasLid = false,
+                MaxInk = 150
+            };
+
+            TestPen(redPen);
+            TestPen(bluePen);
+            TestPen(blackPen);
+        }
+        /* Borrowed from james code.*/
+        public static void TestPen(Pen toTest)
+        {
+            //Console.WriteLine($"This is a {toTest.Brand} {toTest.InkColor} pen which has {toTest.InkLevel}% of its ink remaining.");
+            Console.WriteLine(toTest);
+            toTest.Write();
+            // Console.WriteLine($"This is a {toTest.Brand} {toTest.InkColor} pen which has {toTest.InkLevel}% of its ink remaining.");
+            Console.WriteLine(toTest);
+            try
+            {
+                toTest.Write("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing...Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            // Console.WriteLine($"This is a {toTest.Brand} {toTest.InkColor} pen which has {toTest.InkLevel}% of its ink remaining.");
+            Console.WriteLine(toTest);
+
+
+
         }
     }
 }
