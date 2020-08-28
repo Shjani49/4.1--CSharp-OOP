@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace CSharp_OOP_Prac
 {
@@ -8,170 +9,83 @@ namespace CSharp_OOP_Prac
     {
         static void Main(string[] args)
         {
-            // Modify the student class to have a property for energy level.
-            // The energy level should not be accessible from outside the student.
-            // Create methods in the student that are accessible, for do homework and sleep.
-            // Do homework will lower the student's energy level by 25. Sleep will set the energy level to 100.
-            // When a student is created, ensure their energy level starts at 100.
+            // LINQ stands for Language INtegrated Query.
+            // It allows us to run "SQL" queries on data structures in C#.
 
-            // Overload the sleep method to allow a value of hours. Increase energy by 10 per hour slept.
-            // Add a ceiling of 100 to sleep.
+            List<int> testList = new List<int>() { 2, 5, 12, 7, 32, 95, 42, 65, 9, 42, 7, 42 };
 
-            // Task:
-            // Add a play games method that will decrease energy by 15.
+            // We've looked at a couple in passing so far, mostly the aggregate ones.
 
-            /* Group Task:
-             
-            Add an inaccessible stress level variable, initialized at 0. *
-	            -When homework is done, increase stress by 30. *
-	            -When sleep is done, decrease stress by 50 (or 5 per hour). *
-	            -When games are done, decrease stress by 25. *
-	            -Add a floor to stress level of 0 (similar to ceiling on energy). *
-            Add a query method for stress level and that will output a string based on its level.
-            Throw an exception if stress tries to go over 100. *
-            If you finish: generate a student in main (you can clear out the stuff below this comment), and simulate 10 days for them. IE do homework and games until they're out of energy, sleep and repeat. I know it's a rather simple existence, but it'll suffice for now.
-            */
+            // .Max() and .Min() are sort of the equivalent of MAX() and MIN() in SQL.
+            Console.WriteLine($"The largest number is {testList.Max()} and the smallest number is {testList.Min()}.");
 
+            // .Average() is sort of equivalent to AVG() in SQL.
+            Console.WriteLine($"The average number is {testList.Average()}.");
 
-            //  26/8/2020
-            /*
-          Practice Task:
-         Add a "Pending Homework" property that is a stack of homework objects. 
-         The homework class will have a complexity property of 1-5. Please validate and clamp to 1 if less than 1, and 5 if greater than 5.
-         Modify the DoHomework method so that it will take the top homework off the stack, and the number of characters being written will be the complexity times 100. Energy level will decrease by complexity times 10, and stress will increase by complexity times 5.
-         */
-            
-            Student myStudent = new Student();
-            myStudent.pendingHomeWork.Push(new HomeWork() { Complexity = 3 });
-            Console.WriteLine(myStudent.pendingHomeWork);
-            myStudent.DoHomework();
-            Console.WriteLine(myStudent.pendingHomeWork);
+            // .Sum() is sort of equivalent to SUM() in SQL.
+            Console.WriteLine($"The sum is {testList.Sum()}.");
 
+            // .All() will return a boolean which will indicate whether all of the items satisfy a condition (lambda).
+            Console.WriteLine($"All numbers are greater than 1: {testList.All(x => x > 1)}.");
+            Console.WriteLine($"All numbers are greater than 50: {testList.All(x => x > 50)}.");
 
+            // .Any() will return a boolean which will indicate whether any of the items satisfy a condition (lambda).
+            Console.WriteLine($"Any number is less than 1: {testList.Any(x => x < 1)}.");
+            Console.WriteLine($"Any number is greater than 50: {testList.Any(x => x > 50)}.");
 
+            // .Count() will return a number of the items that satisfy a condition (lambda).
+            Console.WriteLine($"Number of items: {testList.Count()}.");
+            Console.WriteLine($"Number of items greater than 20: {testList.Count(x => x > 20)}.");
+            Console.WriteLine($"Number of items less than 50: {testList.Count(x => x < 50)}.");
 
-            Student ourStudent = new Student("Joe", "Dirt");
+            // .Distinct() will return the unique items, no duplicates. It typically preserves the first occurance in terms of order. Other methods can be chained thereafter to operate on the distinct items.
+            Console.WriteLine($"Number of distinct items: {testList.Distinct().Count()}.");
+            Console.WriteLine($"Number of distinct items greater than 20: {testList.Distinct().Count(x => x > 20)}.");
+            Console.WriteLine($"Number of distinct items less than 50: {testList.Distinct().Count(x => x < 50)}.");
 
-            for (int i = 1; i <= 10; i++)
+            // .OrderBy() will reorder the list based on the lambda comparison provided.
+            Console.Write("List in order: ");
+            foreach (int item in testList.OrderBy(x => x))
             {
-                Console.WriteLine($"----------\nStarting Day {i}");
-                try
-                {
-                    ourStudent.DoHomework();
-                    ourStudent.DoHomework();
-                    ourStudent.PlayGames();
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
-                ourStudent.Sleep(7);
-                Console.WriteLine($"Energy Level: {ourStudent.QueryEnergyLevel()}\nStress Level: {ourStudent.QueryStressLevel()}");
+                Console.Write(item + " ");
             }
+            Console.WriteLine();
 
-            // 25-08-2020
-
-            SchoolClass theClass = new SchoolClass();
-            Teacher theTeacher = theClass.ClassTeacher;
-            theTeacher.FirstName = "Jane";
-
-            Console.WriteLine($"The class has the classcode {theClass.ClassCode}, is called {theClass.ClassName} and is being taught by {theClass.ClassTeacher.FirstName} {theClass.ClassTeacher.LastName}.");
-           
-            // Assigning properties with individual statements.
-            SchoolClass historyClass = new SchoolClass();
-            historyClass.ClassCode = "HIST101";
-            historyClass.ClassName = "Introduction to History";
-
-            // Rather than assigning props as multiple statements, you can assign them during construction using an initializer list.
-            SchoolClass englishClass = new SchoolClass()
+            Console.Write("Distinct list in order: ");
+            foreach (int item in testList.Distinct().OrderBy(x => x))
             {
-                ClassCode = "ENGL101",
-                ClassName = "Introduction to English"
-            };
-            // Using a constructor.
-            SchoolClass programmingClass = new SchoolClass("CPRG101", "Introduction to Programming");
-
-
-            Teacher sueTeacher = new Teacher()
-            {
-                StaffID = 2050,
-                FirstName = "Sue",
-                LastName = "Smith"
-            };
-            Teacher joeTeacher = new Teacher()
-            {
-                StaffID = 2050,
-                FirstName = "Joe",
-                LastName = "Testificate"
-            };
-
-            // For this test run:
-            // Old teacher will be NULL
-            // New teacher will be Sue
-            // "this" will be History class
-            historyClass.ClassTeacher = sueTeacher;
-
-            // For this test run:
-            // Old teacher will be Sue
-            // New teacher will be Joe
-            // "this" will be History class
-            historyClass.ClassTeacher = joeTeacher;
-
-            englishClass.ClassTeacher = joeTeacher;
-            programmingClass.ClassTeacher = joeTeacher;
-
-            Console.WriteLine($"The class has the classcode {historyClass.ClassCode}, is called {historyClass.ClassName} and is being taught by {historyClass.ClassTeacher.FirstName} {historyClass.ClassTeacher.LastName}.");
-
-            StaticExample.EchoSomethingOut();
-
-
-            Teacher.Test();
-
-
-            Pen redPen = new Pen()
-            {
-                Brand = "Bic",
-                InkColor = "Red",
-                HasLid = true,
-                MaxInk = 1
-            };
-            Pen bluePen = new Pen()
-            {
-                Brand = "Bic",
-                InkColor = "Blue",
-                HasLid = false,
-                MaxInk = 10
-            };
-            Pen blackPen = new Pen()
-            {
-                Brand = "Pilot",
-                InkColor = "Black",
-                HasLid = false,
-                MaxInk = 150
-            };
-
-            TestPen(redPen);
-            TestPen(bluePen);
-            TestPen(blackPen);
-        }
-        /* Borrowed from james code.*/
-        public static void TestPen(Pen toTest)
-        {
-            //Console.WriteLine($"This is a {toTest.Brand} {toTest.InkColor} pen which has {toTest.InkLevel}% of its ink remaining.");
-            Console.WriteLine(toTest);
-            toTest.Write();
-            // Console.WriteLine($"This is a {toTest.Brand} {toTest.InkColor} pen which has {toTest.InkLevel}% of its ink remaining.");
-            Console.WriteLine(toTest);
-            try
-            {
-                toTest.Write("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing...Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing");
+                Console.Write(item + " ");
             }
-            catch (Exception ex)
+            Console.WriteLine();
+
+            // .Select() will return a sub-list of associated values based on the lambda.
+            Console.Write("List in order, plus 1: ");
+            foreach (int item in testList.Select(x => x + 1).OrderBy(x => x))
             {
-                Console.WriteLine(ex.Message);
+                Console.Write(item + " ");
             }
-            // Console.WriteLine($"This is a {toTest.Brand} {toTest.InkColor} pen which has {toTest.InkLevel}% of its ink remaining.");
-            Console.WriteLine(toTest);
+            Console.WriteLine();
+
+            // .Where() will return a sub-list of filtered values based on the lambda.
+            Console.Write("List in order, only over 50: ");
+            foreach (int item in testList.Where(x => x > 50).OrderBy(x => x))
+            {
+                Console.Write(item + " ");
+            }
+            Console.WriteLine();
+
+            Console.Write("List in order, only evens: ");
+            foreach (int item in testList.Where(x => x % 2 == 0).OrderBy(x => x))
+            {
+                Console.Write(item + " ");
+            }
+            Console.WriteLine();
+
+            // average, distinct, where, select
+            // Find the average of the distinct values over 25, but subtract 5 from each before the average takes place.
+            Console.WriteLine($"Answer: {testList.Where(x => x > 25).Distinct().Select(x => x - 5).Average()}");
+
+
 
 
 
